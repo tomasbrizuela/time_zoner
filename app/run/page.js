@@ -6,13 +6,13 @@ import { ReplaceIcon, Rotate3dIcon, RotateCwIcon } from "lucide-react";
 export default function Run() {
     return (
         <div className="flex flex-col justify-center items-center gap-5 h-80">
-            <h1 className="font-bold text-4xl">Choose your Time Zones</h1>
-            <div className="flex flex-row justify-center item-center gap-5">
+            <h1 className="font-bold text-4xl text-center">Choose your Time Zones</h1>
+            <div className="flex flex-col md:flex-row justify-center item-center gap-5 flex-wrap">
                 <div className="flex flex-col justify-center items-center border rounded p-4 gap-3">
                     <Hours ></Hours>
                     <TimeZoneSelector></TimeZoneSelector>
                 </div>
-                <div className="flex flex-col justify-center items-center h-full">
+                <div className="flex flex-col justify-center items-center h-fit md:h-full">
                     <p>convert to</p>
                 </div>
                 <div className="flex flex-col justify-center items-center border rounded  p-4 gap-3">

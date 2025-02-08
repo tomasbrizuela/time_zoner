@@ -1,0 +1,2 @@
+api timezone = https://developers.google.com/maps/documentation/timezone/overview?hl=es-419
+    eso voy a usar para convertir las horas y tener el producto final
