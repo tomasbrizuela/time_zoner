@@ -9,16 +9,16 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { Separator } from "../ui/separator"
 
-export function SelectDemo() {
+export function SelectDemo({ handleChange }) {
     return (
-        <Select>
+        <Select onValueChange={handleChange}>
             <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select hours" />
             </SelectTrigger>
             <SelectContent className="h-60">
                 <SelectGroup>
-                    <SelectLabel>am</SelectLabel>
                     <SelectItem value="00:00">00:00</SelectItem>
                     <SelectItem value="00:30">00:30</SelectItem>
                     <SelectItem value="01:00">01:00</SelectItem>
@@ -43,7 +43,7 @@ export function SelectDemo() {
                     <SelectItem value="10:30">10:30</SelectItem>
                     <SelectItem value="11:00">11:00</SelectItem>
                     <SelectItem value="11:30">11:30</SelectItem>
-                    <SelectLabel>pm</SelectLabel>
+                    <Separator></Separator>
                     <SelectItem value="12:00">12:00</SelectItem>
                     <SelectItem value="12:30">12:30</SelectItem>
                     <SelectItem value="13:00">13:00</SelectItem>
@@ -74,8 +74,8 @@ export function SelectDemo() {
     )
 }
 
-export default function Hours() {
+export default function Hours({ handleChange }) {
     return (
-        <SelectDemo></SelectDemo>
+        <SelectDemo handleChange={handleChange}></SelectDemo>
     )
 }
