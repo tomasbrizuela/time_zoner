@@ -32,9 +32,13 @@ export default function Run() {
         let oldHour = hours.split(":")[0]
         let newHour = oldHour - difference.toString().split(".")[0];
         let minutes = hours.toString().split(":")[1];
+        console.log(minutes)
         console.log(newHour)
         if (newHour < 0) {
             newHour = 24 + newHour
+            if (minutes == 0) {
+                newHour = newHour - 1
+            }
         } if (newHour > 24) {
             newHour = (24 - newHour) * -1
         }
