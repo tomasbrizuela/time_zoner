@@ -11,4 +11,4 @@ async function dale(city, city2) {
     console.log(newHour)
 }
 
-dale("Birmania", "Buenos Aires")
+dale("Paris", "Buenos Aires")

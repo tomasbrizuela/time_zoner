@@ -19,10 +19,13 @@ async function getUTC(latlong) {
 }
 
 async function getLatLong(city) {
+    console.log("Citi is " + city)
     let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${apiKey}`;
+    console.log(url)
     try {
         let response = await fetch(url)
         let json = await response.json()
+        console.log(json)
         let { lat, lng } = json.results[0].geometry.location
         return lat + "," + lng
     } catch (e) {
@@ -32,7 +35,9 @@ async function getLatLong(city) {
 
 async function main(city) {
     let latLong = await getLatLong(city)
+    console.log(latLong)
     let utc = await getUTC(latLong);
+    console.log(utc)
     return utc;
 }
 

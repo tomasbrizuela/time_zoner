@@ -9,7 +9,7 @@ const cities = [
         "city": "Tokyo"
     },
     {
-        "city": "Paris"
+        "city": "Paris, France"
     },
     {
         "city": "Hong Kong"
