@@ -29,7 +29,7 @@ export default function Run() {
 
     useEffect(() => {
         if (
-            hours && city && city2
+            hours && city && city2 && show
         ) {
             getResult(city, city2)
         }
