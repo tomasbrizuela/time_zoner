@@ -28,11 +28,25 @@ export default function Run() {
     }
 
     async function getResult(city, city2) {
-        console.log(hours)
-        console.log(city2)
         let difference = await calculateDif(city, city2);
-        let newHour = hours.split(":")[0] - (difference);
-        let minutes = hours.split(":")[1];
+        let oldHour = hours.split(":")[0]
+        let newHour = oldHour - difference.toString().split(".")[0];
+        let minutes = hours.toString().split(":")[1];
+        console.log(newHour)
+        if (newHour < 0) {
+            newHour = 24 + newHour - 1
+        } if (newHour > 24) {
+            newHour = (24 - newHour) * -1
+        }
+
+        if (difference.toString().includes(".")) {
+            if (minutes == 0) {
+                minutes = "30"
+
+            } else {
+                minutes = "00"
+            }
+        }
         let finalTime = newHour + ":" + minutes
         setNewHour(finalTime);
         setShow(!show)
@@ -40,7 +54,7 @@ export default function Run() {
 
     return (
         <div className="flex flex-col justify-center items-center gap-5 h-80">
-            <h1 className="font-bold text-4xl text-center">Choose your Time Zones</h1>
+            <h1 className="font-bold text-4xl text-center">Choose your Cities</h1>
             <div className="flex flex-col md:flex-row justify-center item-center gap-5 flex-wrap">
                 <div className="flex flex-col justify-center items-center border rounded p-4 gap-3">
                     <Hours handleChange={logHour}></Hours>
@@ -56,10 +70,10 @@ export default function Run() {
             </div>
             <div className="flex flex-col justify-center items-center">
                 {
-                    show && <>
-                        < Separator></Separator>
-                        <p className="text-center pe-5 ps-5">{hours}hs in {city} are {newHour} in {city2}</p>
-                    </>
+                    show ? <>
+                        {/* < Separator></Separator> */}
+                        <p className="text-center pe-5 ps-5"><strong>{hours}</strong> hs in <span className="underline">{city}</span> is <strong>{newHour}</strong> hs in <span className="underline">{city2}</span></p>
+                    </> : <div><p><br></br></p></div>
                 }
             </div>
         </div >

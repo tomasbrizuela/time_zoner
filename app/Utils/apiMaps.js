@@ -23,7 +23,6 @@ async function getLatLong(city) {
     try {
         let response = await fetch(url)
         let json = await response.json()
-        console.log(json)
         let { lat, lng } = json.results[0].geometry.location
         return lat + "," + lng
     } catch (e) {
@@ -36,6 +35,5 @@ async function main(city) {
     let utc = await getUTC(latLong);
     return utc;
 }
-
 
 export default main;

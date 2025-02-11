@@ -151,6 +151,12 @@ const cities = [
     },
     {
         "city": "Chengdu"
+    },
+    {
+        "city": "Birmania"
+    },
+    {
+        "city": "Malaysia"
     }
 ]
 
