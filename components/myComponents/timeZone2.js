@@ -10,9 +10,9 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 
-export function SelectScrollable({ logCity }) {
+export function SelectScrollable2({ logCity2 }) {
     return (
-        <Select onValueChange={logCity}>
+        <Select onValueChange={logCity2}>
             <SelectTrigger className="w-[280px] h-full">
                 <SelectValue placeholder="Select city" />
             </SelectTrigger>
@@ -27,8 +27,8 @@ export function SelectScrollable({ logCity }) {
     )
 }
 
-export default function TimeZoneSelector({ logCity }) {
+export default function TimeZone2({ logCity2 }) {
     return (
-        <SelectScrollable logCity={logCity}></SelectScrollable>
+        <SelectScrollable2 logCity2={logCity2}></SelectScrollable2>
     )
 }
