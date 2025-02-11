@@ -45,7 +45,7 @@ export default function Run() {
         console.log(newHour)
         if (newHour < 0) {
             newHour = 24 + newHour
-            if (minutes == 0) {
+            if (minutes == 0 && difference.toString().split(".")[1] == 5) {
                 newHour = newHour - 1
             }
         } if (newHour > 24) {
