@@ -3,7 +3,7 @@ import Hours from "@/components/myComponents/hourSelector";
 import TimeZoneSelector from "@/components/myComponents/timeZoneSelector";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TimeZone2 from "@/components/myComponents/timeZone2";
 import calculateDif from "../Utils/calculations.js";
 
@@ -27,7 +27,16 @@ export default function Run() {
         setCity2(e)
     }
 
+    useEffect(() => {
+        if (
+            hours && city && city2
+        ) {
+            getResult(city, city2)
+        }
+    }, [city, city2, hours])
+
     async function getResult(city, city2) {
+        console.log("Change")
         let difference = await calculateDif(city, city2);
         let oldHour = hours.split(":")[0]
         let newHour = oldHour - difference.toString().split(".")[0];
@@ -52,7 +61,9 @@ export default function Run() {
         }
         let finalTime = newHour + ":" + minutes
         setNewHour(finalTime);
-        setShow(!show)
+        if (!show) {
+            setShow(true)
+        }
     }
 
     return (
