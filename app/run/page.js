@@ -34,7 +34,7 @@ export default function Run() {
         let minutes = hours.toString().split(":")[1];
         console.log(newHour)
         if (newHour < 0) {
-            newHour = 24 + newHour - 1
+            newHour = 24 + newHour
         } if (newHour > 24) {
             newHour = (24 - newHour) * -1
         }
@@ -42,7 +42,6 @@ export default function Run() {
         if (difference.toString().includes(".")) {
             if (minutes == 0) {
                 minutes = "30"
-
             } else {
                 minutes = "00"
             }
