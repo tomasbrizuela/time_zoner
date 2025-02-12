@@ -2,12 +2,12 @@
 import Hours from "@/components/myComponents/hourSelector";
 import TimeZoneSelector from "@/components/myComponents/timeZoneSelector";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { useEffect, useState } from "react";
 import TimeZone2 from "@/components/myComponents/timeZone2";
 import calculateDif from "../Utils/calculations.js";
 
 export default function Run() {
+    const [dif, setDif] = useState("");
     const [city, setCity] = useState("");
     const [city2, setCity2] = useState("");
     const [hours, setHours] = useState("");
@@ -33,10 +33,11 @@ export default function Run() {
         ) {
             getResult(city, city2)
         }
-    }, [city, city2, hours])
+    }, [city, city2, hours, dif])
 
     async function getResult(city, city2) {
         let difference = await calculateDif(city, city2);
+        setDif(difference)
         let oldHour = hours.split(":")[0]
         let newHour = oldHour - difference.toString().split(".")[0];
         let minutes = hours.toString().split(":")[1];
@@ -83,7 +84,7 @@ export default function Run() {
                 {
                     show ? <>
                         {/* < Separator></Separator> */}
-                        <p className="text-center pe-5 ps-5"><strong>{hours}</strong> hs in <span className="underline">{city}</span> is <strong>{newHour}</strong> hs in <span className="underline">{city2}</span></p>
+                        <p className="text-center pe-5 ps-5"><strong>{hours}</strong> hs in <span className="underline">{city}</span> is <strong>{newHour}</strong> hs ({dif > 0 ? "-" : "+"}{dif < 0 ? dif * -1 : dif}hs) in <span className="underline">{city2} </span></p>
                     </> : <div><p><br></br></p></div>
                 }
             </div>
